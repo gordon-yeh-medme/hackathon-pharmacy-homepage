@@ -12,7 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useMediaQuery } from "@/app/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { PharmacyService } from "@/app/types/pharmacy";
+import { HighlightedService } from "@/types/pharmacy";
 
 interface ServiceCardProps {
   title: string;
@@ -75,7 +75,7 @@ const DesktopGrid = ({ services }: { services: ServiceCardProps[] }) => {
 };
 
 interface ServiceHighlightsProps {
-  services: PharmacyService[];
+  services: HighlightedService[];
 }
 
 export default function ServiceHighlights({
@@ -85,7 +85,7 @@ export default function ServiceHighlights({
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className={`${isMobile ? "" : "container"} mx-auto px-4`}>
+      <div className={`${isMobile ? "" : "container max-w-6xl"} mx-auto px-4`}>
         <div className="container mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Our Services</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

@@ -10,6 +10,7 @@ export interface PharmacyData {
   };
   hours: PharmacyHours;
   services: PharmacyService[];
+  aboutUs: AboutUs;
   // We'll add more fields as we build other components
 }
 
@@ -32,7 +33,21 @@ export interface PharmacyHours {
 }
 
 export interface PharmacyService {
+  id: string;
+  title: string;
+  description?: string;
+}
+
+export interface AboutUs {
+  image: string;
   title: string;
   description: string;
-  icon: string;
+}
+
+export interface HighlightedService {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  url?: string;
 }

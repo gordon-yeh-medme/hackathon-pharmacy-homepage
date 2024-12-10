@@ -3,22 +3,32 @@ import { PharmacyInfo } from "@/app/components/PharmacyInfo";
 import { fetchPharmacyData } from "@/app/lib/fetchData";
 import PharmacyHours from "@/app/components/PharmacyHours";
 import ServiceHighlights from "./components/ServiceHighlights";
+import { PharmacyServices } from "@/app/components/PharmacyServices";
+import { AboutUs } from "@/app/components/AboutUs";
+import { Header } from "@/app/components/Header";
+import Footer from "./components/Footer";
 
 export default async function Home() {
   const pharmacyData = await fetchPharmacyData();
 
   return (
-    <main>
-      <StickyBottomBar pharmacyName="Your Pharmacy Name" />
-      <PharmacyInfo
-        address={pharmacyData.address}
-        phone={pharmacyData.phone}
-        fax={pharmacyData.fax}
-        email={pharmacyData.email}
-        coordinates={pharmacyData.coordinates}
-      />
-      <PharmacyHours hours={pharmacyData.hours} />
-      <ServiceHighlights services={pharmacyData.services} />
-    </main>
+    <>
+      <Header pharmacyName={pharmacyData.name} className="sticky top-0 z-50" />
+      <main>
+        <StickyBottomBar pharmacyName={pharmacyData.name} />
+        <PharmacyInfo
+          address={pharmacyData.address}
+          phone={pharmacyData.phone}
+          fax={pharmacyData.fax}
+          email={pharmacyData.email}
+          coordinates={pharmacyData.coordinates}
+        />
+        <PharmacyHours hours={pharmacyData.hours} />
+        <ServiceHighlights services={pharmacyData.highlightedServices} />
+        <PharmacyServices services={pharmacyData.services} />
+        <AboutUs data={pharmacyData.aboutUs} />
+        <Footer />
+      </main>
+    </>
   );
 }

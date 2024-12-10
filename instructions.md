@@ -80,7 +80,7 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
   - Ensure images are optimized and lazy-loaded for performance.
   - Carousel navigation (e.g., arrows or dots) is not required for the MVP.
 
-### Pharmacy Services
+### Pharmacy Services Section
 
 - **Description:** Displays all services offered in a card format.
 - **Content:**
@@ -91,7 +91,7 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
   - Use Tailwind CSS grid or flex utilities for responsiveness.
   - The list of services will be dynamically fetched from the RESTful endpoint.
 
-### About Us
+### About Us Section
 
 - **Description:** Showcases an image and the story of the pharmacy, including their team, mission, and values.
 - **Content:**
@@ -103,7 +103,21 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
   - This section should support only one image for the MVP.
   - The story text will be fetched from the RESTful endpoint.
 
-### Folder Structure
+### Footer Section
+
+- **Description:** Displays the footer of the page.
+- **Content:**
+  - Links to social media platforms
+  - a "powered by MedMe Health" label that links to https://www.medmehealth.com/
+  - a "All rights reserved" label
+  - a "Privacy Policy" link to https://www.medmehealth.com/privacy-policy
+  - a "Support Agreement" link to https://www.medmehealth.com/support-agreement
+  - a "SaaS Agreement" link to https://www.medmehealth.com/saas-agreement
+- **Developer Alignment:**
+  - Implement using Tailwind CSS for styling.
+  - Ensure the footer is accessible and keyboard-navigable.
+
+## Folder Structure
 
 .
 ├── app

@@ -9,8 +9,8 @@ interface PharmacyHoursProps {
 
 export default function PharmacyHours({ hours }: PharmacyHoursProps) {
   return (
-    <section className="py-8">
-      <div className="container mx-auto px-4">
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-2xl font-bold mb-6">Hours of Operation</h2>
 
         <div className="grid gap-6 md:grid-cols-2">

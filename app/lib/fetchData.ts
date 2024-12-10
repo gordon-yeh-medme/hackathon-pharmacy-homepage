@@ -2,12 +2,30 @@ import {
   PharmacyData,
   PharmacyHours,
   PharmacyService,
+  AboutUs,
 } from "@/app/types/pharmacy";
 
-export async function fetchPharmacyData(): Promise<PharmacyData> {
-  // In a real application, this would fetch from your API endpoint
-  // For now, we'll return mock data
-  const mockData: PharmacyData = {
+interface HighlightedService extends PharmacyService {
+  icon: string;
+}
+
+export async function fetchPharmacyData(): Promise<{
+  name: string;
+  address: string;
+  phone: string;
+  fax: string;
+  email: string;
+  coordinates: {
+    latitude: number;
+    longitude: number;
+  };
+  hours: PharmacyHours;
+  highlightedServices: HighlightedService[];
+  services: PharmacyService[];
+  aboutUs: AboutUs;
+}> {
+  // For development, you can use this mock data
+  const mockData = {
     name: "Pharmacy " + Math.floor(Math.random() * 1000),
     address: "155 Queens Quay E, Toronto, ON, Canada M5A 0W4",
     phone: "(123) 456-7890",
@@ -42,38 +60,86 @@ export async function fetchPharmacyData(): Promise<PharmacyData> {
         },
       ],
     } as PharmacyHours,
-    services: [
+    highlightedServices: [
       {
-        title: "Prescription Services",
+        id: "hl1",
+        title: "Prescription Filling",
         description:
-          "Quick and accurate prescription filling with professional consultation.",
+          "Quick and accurate prescription filling service with professional consultation.",
         icon: "/icons/prescription.svg",
       },
       {
+        id: "hl2",
         title: "Medication Review",
         description:
           "Comprehensive medication reviews to ensure your safety and optimal health.",
         icon: "/icons/review.svg",
       },
       {
+        id: "hl3",
         title: "Vaccination Services",
         description:
           "Convenient immunizations and vaccines administered by certified pharmacists.",
         icon: "/icons/vaccine.svg",
       },
       {
+        id: "hl4",
         title: "Health Consultations",
         description:
           "One-on-one consultations for personalized healthcare advice.",
         icon: "/icons/consultation.svg",
       },
     ],
+    services: [
+      {
+        id: "1",
+        title: "Prescription Filling",
+        description: "Quick and accurate prescription filling service",
+      },
+      {
+        id: "2",
+        title: "Medication Review",
+        description: "Comprehensive medication review with our pharmacists",
+      },
+      {
+        id: "3",
+        title: "Vaccinations",
+        description: "Various vaccination services available",
+      },
+      {
+        id: "4",
+        title: "Health Consultations",
+        description: "One-on-one health consultations with our experts",
+      },
+      {
+        id: "5",
+        title: "Compounding",
+        description: "Custom medication preparation for your specific needs",
+      },
+      {
+        id: "6",
+        title: "Diabetes Care",
+        description: "Specialized diabetes management and supplies",
+      },
+      {
+        id: "7",
+        title: "Blood Pressure Monitoring",
+        description: "Regular blood pressure checks and monitoring",
+      },
+      {
+        id: "8",
+        title: "Travel Health",
+        description: "Travel vaccination and health consultation",
+      },
+    ],
+    aboutUs: {
+      image: "/about-us-sample.webp",
+      title: "Your Trusted Healthcare Partner",
+      description:
+        "Founded in 1995, our pharmacy has been serving the local community with dedication and care. We believe in providing personalized attention to each customer and ensuring they receive the best possible healthcare services.\n\nOur team of experienced pharmacists and healthcare professionals work tirelessly to maintain the highest standards of pharmaceutical care. We are committed to improving the health and wellness of our community by providing accessible, high-quality pharmaceutical care and personalized healthcare services.",
+    },
   };
 
-  console.log("Pharmacy Coordinates:", mockData.coordinates);
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mockData);
-    }, 1000);
-  });
+  // TODO: Replace with actual API call
+  return mockData;
 }
