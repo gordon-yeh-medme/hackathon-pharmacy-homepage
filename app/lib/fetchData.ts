@@ -16,7 +16,11 @@ export async function fetchPharmacyData(): Promise<PharmacyData> {
     },
     hours: {
       regularHours: [
-        { day: "Monday - Friday", openTime: "9:00 AM", closeTime: "7:00 PM" },
+        { day: "Monday", openTime: "9:00 AM", closeTime: "7:00 PM" },
+        { day: "Tuesday", openTime: "9:00 AM", closeTime: "7:00 PM" },
+        { day: "Wednesday", openTime: "9:00 AM", closeTime: "7:00 PM" },
+        { day: "Thursday", openTime: "9:00 AM", closeTime: "7:00 PM" },
+        { day: "Friday", openTime: "9:00 AM", closeTime: "7:00 PM" },
         { day: "Saturday", openTime: "10:00 AM", closeTime: "5:00 PM" },
         { day: "Sunday", openTime: "Closed", closeTime: "Closed" },
       ],

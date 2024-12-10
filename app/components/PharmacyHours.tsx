@@ -19,10 +19,17 @@ export default function PharmacyHours({ hours }: PharmacyHoursProps) {
             <h3 className="text-lg font-semibold mb-4">Regular Hours</h3>
             <div className="space-y-2">
               {hours.regularHours.map((schedule) => (
-                <div key={schedule.day} className="flex justify-between">
-                  <span className="font-medium">{schedule.day}</span>
-                  <span>
-                    {schedule.openTime} - {schedule.closeTime}
+                <div
+                  key={schedule.day}
+                  className="flex justify-between items-center py-1 border-b last:border-b-0 border-muted"
+                >
+                  <span className="font-medium min-w-[100px]">
+                    {schedule.day}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {schedule.openTime === "Closed"
+                      ? "Closed"
+                      : `${schedule.openTime} - ${schedule.closeTime}`}
                   </span>
                 </div>
               ))}
