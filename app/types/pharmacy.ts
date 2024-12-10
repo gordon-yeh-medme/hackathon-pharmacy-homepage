@@ -9,6 +9,7 @@ export interface PharmacyData {
     longitude: number;
   };
   hours: PharmacyHours;
+  services: PharmacyService[];
   // We'll add more fields as we build other components
 }
 
@@ -28,4 +29,10 @@ export interface HolidayHours {
 export interface PharmacyHours {
   regularHours: RegularHours[];
   holidayHours: HolidayHours[];
+}
+
+export interface PharmacyService {
+  title: string;
+  description: string;
+  icon: string;
 }

@@ -2,6 +2,7 @@ import { StickyBottomBar } from "@/app/components/StickyBottomBar";
 import { PharmacyInfo } from "@/app/components/PharmacyInfo";
 import { fetchPharmacyData } from "@/app/lib/fetchData";
 import PharmacyHours from "@/app/components/PharmacyHours";
+import ServiceHighlights from "./components/ServiceHighlights";
 
 export default async function Home() {
   const pharmacyData = await fetchPharmacyData();
@@ -17,6 +18,7 @@ export default async function Home() {
         coordinates={pharmacyData.coordinates}
       />
       <PharmacyHours hours={pharmacyData.hours} />
+      <ServiceHighlights services={pharmacyData.services} />
     </main>
   );
 }

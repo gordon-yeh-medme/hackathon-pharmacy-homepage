@@ -61,7 +61,7 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
   - Ensure proper formatting of holiday hours for clarity.
   - "Holiday hours" should be input via the same RESTful endpoint.
 
-### Service Highlights
+### Service Highlights Section
 
 - **Description:** Displays 4 cards with an image, title, and description.
 - **Content:**
@@ -71,7 +71,8 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
     {
       "image": "https://via.placeholder.com/150",
       "title": "Service 1",
-      "description": "This is the description for service 1"
+      "description": "Service is offered from 9am to 5pm on weekdays, if you need to book an appointment, please click the link below.",
+      "url": "https://www.google.com"
     }
     ```
 - **Developer Alignment:**

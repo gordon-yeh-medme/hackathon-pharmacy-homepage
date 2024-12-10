@@ -1,5 +1,8 @@
-import { PharmacyData } from "@/app/types/pharmacy";
-import { PharmacyHours } from "@/app/types/pharmacy";
+import {
+  PharmacyData,
+  PharmacyHours,
+  PharmacyService,
+} from "@/app/types/pharmacy";
 
 export async function fetchPharmacyData(): Promise<PharmacyData> {
   // In a real application, this would fetch from your API endpoint
@@ -39,6 +42,32 @@ export async function fetchPharmacyData(): Promise<PharmacyData> {
         },
       ],
     } as PharmacyHours,
+    services: [
+      {
+        title: "Prescription Services",
+        description:
+          "Quick and accurate prescription filling with professional consultation.",
+        icon: "/icons/prescription.svg",
+      },
+      {
+        title: "Medication Review",
+        description:
+          "Comprehensive medication reviews to ensure your safety and optimal health.",
+        icon: "/icons/review.svg",
+      },
+      {
+        title: "Vaccination Services",
+        description:
+          "Convenient immunizations and vaccines administered by certified pharmacists.",
+        icon: "/icons/vaccine.svg",
+      },
+      {
+        title: "Health Consultations",
+        description:
+          "One-on-one consultations for personalized healthcare advice.",
+        icon: "/icons/consultation.svg",
+      },
+    ],
   };
 
   console.log("Pharmacy Coordinates:", mockData.coordinates);
