@@ -23,8 +23,6 @@ export function PharmacyInfo({
   email,
   coordinates,
 }: PharmacyInfoProps) {
-  console.log("Mapbox Token:", process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN);
-
   return (
     <section className="py-12">
       <div className="container mx-auto px-4 max-w-6xl">

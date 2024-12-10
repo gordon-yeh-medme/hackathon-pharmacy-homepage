@@ -1,13 +1,9 @@
 import {
-  PharmacyData,
   PharmacyHours,
   PharmacyService,
   AboutUs,
+  HighlightedService,
 } from "@/app/types/pharmacy";
-
-interface HighlightedService extends PharmacyService {
-  icon: string;
-}
 
 export async function fetchPharmacyData(): Promise<{
   name: string;
@@ -66,28 +62,28 @@ export async function fetchPharmacyData(): Promise<{
         title: "Prescription Filling",
         description:
           "Quick and accurate prescription filling service with professional consultation.",
-        icon: "/icons/prescription.svg",
+        image: "/icons/prescription.svg",
       },
       {
         id: "hl2",
         title: "Medication Review",
         description:
           "Comprehensive medication reviews to ensure your safety and optimal health.",
-        icon: "/icons/review.svg",
+        image: "/icons/review.svg",
       },
       {
         id: "hl3",
         title: "Vaccination Services",
         description:
           "Convenient immunizations and vaccines administered by certified pharmacists.",
-        icon: "/icons/vaccine.svg",
+        image: "/icons/vaccine.svg",
       },
       {
         id: "hl4",
         title: "Health Consultations",
         description:
           "One-on-one consultations for personalized healthcare advice.",
-        icon: "/icons/consultation.svg",
+        image: "/icons/consultation.svg",
       },
     ],
     services: [

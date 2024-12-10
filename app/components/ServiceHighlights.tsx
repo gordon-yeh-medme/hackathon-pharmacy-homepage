@@ -12,20 +12,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useMediaQuery } from "@/app/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { HighlightedService } from "@/types/pharmacy";
+import { HighlightedService } from "@/app/types/pharmacy";
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: string;
+  image: string;
+  url?: string;
 }
 
-const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
   return (
     <Card className="bg-white border-none shadow-md hover:shadow-lg transition-shadow h-full">
       <CardContent className="p-6 flex flex-col h-full">
         <div className="flex items-center justify-center w-12 h-12 mb-4 bg-primary/10 rounded-full">
-          <Image src={icon} alt={title} width={24} height={24} />
+          <Image src={image} alt={title} width={24} height={24} />
         </div>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-gray-600 flex-grow mb-4">{description}</p>
@@ -39,7 +40,7 @@ const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
   );
 };
 
-const MobileCarousel = ({ services }: { services: ServiceCardProps[] }) => {
+const MobileCarousel = ({ services }: { services: HighlightedService[] }) => {
   return (
     <Carousel
       opts={{
@@ -50,8 +51,8 @@ const MobileCarousel = ({ services }: { services: ServiceCardProps[] }) => {
       className="pl-4 pb-6"
     >
       <CarouselContent className="-ml-2 cursor-grab active:cursor-grabbing">
-        {services.map((service, index) => (
-          <CarouselItem key={index} className="pl-2 basis-[45%] pb-4">
+        {services.map((service) => (
+          <CarouselItem key={service.id} className="pl-2 basis-[45%] pb-4">
             <ServiceCard {...service} />
           </CarouselItem>
         ))}
@@ -64,11 +65,11 @@ const MobileCarousel = ({ services }: { services: ServiceCardProps[] }) => {
   );
 };
 
-const DesktopGrid = ({ services }: { services: ServiceCardProps[] }) => {
+const DesktopGrid = ({ services }: { services: HighlightedService[] }) => {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-      {services.map((service, index) => (
-        <ServiceCard key={index} {...service} />
+      {services.map((service) => (
+        <ServiceCard key={service.id} {...service} />
       ))}
     </div>
   );

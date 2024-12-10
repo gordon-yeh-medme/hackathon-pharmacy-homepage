@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { PharmacyHours } from "@/types/pharmacy";
+import { type PharmacyHours } from "@/app/types/pharmacy";
 import Link from "next/link";
 
 interface PharmacyHoursProps {
