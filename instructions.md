@@ -23,6 +23,30 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 
 ## Core Components
 
+### Announcement Banner
+
+- **Description:** A sticky banner at the top of the page that can be dismissed.
+- **Content:**
+  - A single line of text for the announcement
+  - A link (optional)
+  - A close button
+- **Developer Alignment:**
+  - Banner should be sticky and appear above all other content
+  - Maximum width should be constrained (e.g., max-w-2xl) and centered
+  - Use eye-catching but on-brand colors to draw attention
+  - Banner state (open/closed) should persist in localStorage
+  - Ensure the close button is accessible via keyboard
+  - Example input:
+    ```json
+    {
+      "text": "Get your flu shot today!",
+      "link": {
+        "url": "/book-appointment",
+        "text": "Book Now"
+      }
+    }
+    ```
+
 ### Sticky Bottom Bar
 
 - **Description:** A sticky component located at the bottom of the page on mobile view.
@@ -125,6 +149,7 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 .
 ├── app
 │ ├── components
+│ │ ├── AnnouncementBanner.tsx # Announcement banner component
 │ │ ├── StickyBottomBar.tsx # Sticky bottom bar component
 │ │ ├── PharmacyInfo.tsx # Pharmacy info section
 │ │ ├── PharmacyHours.tsx # Pharmacy hours section

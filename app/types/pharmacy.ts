@@ -51,3 +51,11 @@ export interface HighlightedService {
   image: string;
   url?: string;
 }
+
+export interface AnnouncementBannerData {
+  text: string;
+  link?: {
+    url: string;
+    text: string;
+  };
+}

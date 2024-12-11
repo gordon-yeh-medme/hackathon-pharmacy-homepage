@@ -7,12 +7,16 @@ import { PharmacyServices } from "@/app/components/PharmacyServices";
 import { AboutUs } from "@/app/components/AboutUs";
 import { Header } from "@/app/components/Header";
 import Footer from "./components/Footer";
+import { AnnouncementBanner } from "./components/AnnouncementBanner";
 
 export default async function Home() {
   const pharmacyData = await fetchPharmacyData();
 
   return (
     <>
+      {pharmacyData.announcement && (
+        <AnnouncementBanner data={pharmacyData.announcement} />
+      )}
       <Header pharmacyName={pharmacyData.name} className="sticky top-0 z-50" />
       <main>
         <PharmacyInfo

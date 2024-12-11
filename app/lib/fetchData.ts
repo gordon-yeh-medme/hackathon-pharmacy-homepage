@@ -3,9 +3,11 @@ import {
   PharmacyService,
   AboutUs,
   HighlightedService,
+  AnnouncementBannerData,
 } from "@/app/types/pharmacy";
 
-export async function fetchPharmacyData(): Promise<{
+interface PharmacyData {
+  announcement?: AnnouncementBannerData;
   name: string;
   address: string;
   phone: string;
@@ -22,9 +24,18 @@ export async function fetchPharmacyData(): Promise<{
   highlightedServices: HighlightedService[];
   services: PharmacyService[];
   aboutUs: AboutUs;
-}> {
+}
+
+export async function fetchPharmacyData(): Promise<PharmacyData> {
   // For development, you can use this mock data
   const mockData = {
+    announcement: {
+      text: "Get your flu shot today!",
+      link: {
+        url: "/book-appointment",
+        text: "Book Now",
+      },
+    },
     name: "Pharmacy " + Math.floor(Math.random() * 1000),
     address: "155 Queens Quay E, Toronto, ON, Canada M5A 0W4",
     phone: "(123) 456-7890",
