@@ -10,24 +10,28 @@ import { AnnouncementBanner } from "./components/AnnouncementBanner";
 
 export default async function Home() {
   const pharmacyData = await fetchPharmacyData();
-  console.log(JSON.stringify(pharmacyData));
 
   return (
     <>
       {pharmacyData.announcement && (
         <AnnouncementBanner data={pharmacyData.announcement} />
       )}
-      <Header pharmacyName={pharmacyData.name} className="sticky top-0 z-50" />
+      <Header
+        pharmacyName={pharmacyData.pharmacyMainInfo.name}
+        className="sticky top-0 z-50"
+      />
       <main>
         <PharmacyInfo
-          address={pharmacyData.address}
-          phone={pharmacyData.phone}
-          fax={pharmacyData.fax}
-          email={pharmacyData.email}
-          coordinates={pharmacyData.coordinates}
+          address={pharmacyData.pharmacyMainInfo.address}
+          phone={pharmacyData.pharmacyMainInfo.phone}
+          fax={pharmacyData.pharmacyMainInfo.fax}
+          email={pharmacyData.pharmacyMainInfo.email}
+          coordinates={pharmacyData.pharmacyMainInfo.coordinates}
           spokenLanguages={pharmacyData.spokenLanguages}
-          isWheelchairAccessible={pharmacyData.isWheelchairAccessible}
-          acceptsWalkIns={pharmacyData.acceptsWalkIns}
+          isWheelchairAccessible={
+            pharmacyData.accessibility.isWheelchairAccessible
+          }
+          acceptsWalkIns={pharmacyData.accessibility.acceptsWalkIns}
         />
         <PharmacyHours hours={pharmacyData.hours} />
         <ServiceHighlights services={pharmacyData.highlightedServices} />

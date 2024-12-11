@@ -45,8 +45,7 @@ export const AnnouncementBannerSchema = z.object({
     .optional(),
 });
 
-export const PharmacyDataSchema = z.object({
-  announcement: AnnouncementBannerSchema.optional(),
+export const PharmacyMainInfoSchema = z.object({
   name: z.string(),
   address: z.string(),
   phone: z.string(),
@@ -56,9 +55,18 @@ export const PharmacyDataSchema = z.object({
     latitude: z.number(),
     longitude: z.number(),
   }),
-  spokenLanguages: z.array(z.string()),
+});
+
+export const AccessibilitySchema = z.object({
   isWheelchairAccessible: z.boolean(),
   acceptsWalkIns: z.boolean(),
+});
+
+export const PharmacyDataSchema = z.object({
+  announcement: AnnouncementBannerSchema.optional(),
+  pharmacyMainInfo: PharmacyMainInfoSchema,
+  spokenLanguages: z.array(z.string()),
+  accessibility: AccessibilitySchema,
   hours: PharmacyHoursSchema,
   highlightedServices: z.array(HighlightedServiceSchema),
   services: z.array(PharmacyServiceSchema),
@@ -71,6 +79,8 @@ export type HolidayHours = z.infer<typeof HolidayHoursSchema>;
 export type PharmacyHours = z.infer<typeof PharmacyHoursSchema>;
 export type PharmacyService = z.infer<typeof PharmacyServiceSchema>;
 export type HighlightedService = z.infer<typeof HighlightedServiceSchema>;
+export type PharmacyMainInfo = z.infer<typeof PharmacyMainInfoSchema>;
+export type Accessibility = z.infer<typeof AccessibilitySchema>;
 export type PharmacyData = z.infer<typeof PharmacyDataSchema>;
 export type AboutUs = z.infer<typeof AboutUsSchema>;
 export type AnnouncementBannerData = z.infer<typeof AnnouncementBannerSchema>;

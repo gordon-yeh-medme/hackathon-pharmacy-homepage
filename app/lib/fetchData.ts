@@ -8,6 +8,7 @@ import { headers } from "next/headers";
 // Domain to locationId mapping
 const DOMAIN_MAPPING: Record<string, string> = {
   "localhost:3000": "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98",
+  "localhost:3001": "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98",
   "hackathon-pharmacy-homepage.vercel.app":
     "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98",
 };
