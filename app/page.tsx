@@ -1,4 +1,3 @@
-import { StickyBottomBar } from "@/app/components/StickyBottomBar";
 import { PharmacyInfo } from "@/app/components/PharmacyInfo";
 import { fetchPharmacyData } from "@/app/lib/fetchData";
 import PharmacyHours from "@/app/components/PharmacyHours";
