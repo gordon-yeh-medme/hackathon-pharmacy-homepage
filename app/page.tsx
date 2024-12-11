@@ -27,7 +27,7 @@ export default async function Home() {
           fax={pharmacyData.pharmacyMainInfo.fax}
           email={pharmacyData.pharmacyMainInfo.email}
           coordinates={pharmacyData.pharmacyMainInfo.coordinates}
-          spokenLanguages={pharmacyData.spokenLanguages}
+          spokenLanguages={pharmacyData.accessibility.spokenLanguages}
           isWheelchairAccessible={
             pharmacyData.accessibility.isWheelchairAccessible
           }

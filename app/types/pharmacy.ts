@@ -60,12 +60,12 @@ export const PharmacyMainInfoSchema = z.object({
 export const AccessibilitySchema = z.object({
   isWheelchairAccessible: z.boolean(),
   acceptsWalkIns: z.boolean(),
+  spokenLanguages: z.array(z.string()),
 });
 
 export const PharmacyDataSchema = z.object({
   announcement: AnnouncementBannerSchema.optional(),
   pharmacyMainInfo: PharmacyMainInfoSchema,
-  spokenLanguages: z.array(z.string()),
   accessibility: AccessibilitySchema,
   hours: PharmacyHoursSchema,
   highlightedServices: z.array(HighlightedServiceSchema),
