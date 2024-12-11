@@ -64,7 +64,7 @@ export default function PharmacyHours({ hours }: PharmacyHoursProps) {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/booking">
+          <Link href="https://medme.development.medmeapp.com/schedule">
             <Button variant="default" size="lg" className="w-full md:w-auto">
               Book an appointment
             </Button>

@@ -15,7 +15,7 @@ export function Header({ pharmacyName, className }: HeaderProps) {
           <h1 className="text-xl md:text-2xl font-bold text-foreground">
             {pharmacyName}
           </h1>
-          <Link href="/booking">
+          <Link href="https://medme.development.medmeapp.com/schedule">
             <Button variant="default" className="font-semibold">
               Book Now →
             </Button>
