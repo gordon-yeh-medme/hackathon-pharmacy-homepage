@@ -9,14 +9,14 @@ interface HeaderProps {
 
 export function Header({ pharmacyName, className }: HeaderProps) {
   return (
-    <header className={cn("w-full bg-white border-b", className)}>
+    <header className={cn("w-full bg-background border-border", className)}>
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex items-center justify-between h-16">
-          <h1 className="text-xl md:text-2xl font-bold text-primary">
+          <h1 className="text-xl md:text-2xl font-bold text-foreground">
             {pharmacyName}
           </h1>
           <Link href="/booking">
-            <Button variant="secondary" className="font-semibold">
+            <Button variant="default" className="font-semibold">
               Book Now →
             </Button>
           </Link>

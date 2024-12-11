@@ -23,13 +23,13 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
   return (
-    <Card className="bg-white border-none shadow-md hover:shadow-lg transition-shadow h-full">
+    <Card className="bg-card text-card-foreground border-border shadow-md hover:shadow-lg transition-shadow h-full">
       <CardContent className="p-6 flex flex-col h-full">
         <div className="flex items-center justify-center w-12 h-12 mb-4 bg-primary/10 rounded-full">
           <Image src={image} alt={title} width={24} height={24} />
         </div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-600 flex-grow mb-4">{description}</p>
+        <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
+        <p className="text-muted-foreground flex-grow mb-4">{description}</p>
         <Link href="/booking" className="mt-auto">
           <Button className="w-full" variant="outline">
             Book Now
@@ -58,8 +58,8 @@ const MobileCarousel = ({ services }: { services: HighlightedService[] }) => {
         ))}
       </CarouselContent>
       <div className="flex items-center justify-center gap-2 mt-2">
-        <CarouselPrevious className="static translate-y-0 hover:bg-primary hover:text-white" />
-        <CarouselNext className="static translate-y-0 hover:bg-primary hover:text-white" />
+        <CarouselPrevious className="static translate-y-0 hover:bg-primary hover:text-primary-foreground" />
+        <CarouselNext className="static translate-y-0 hover:bg-primary hover:text-primary-foreground" />
       </div>
     </Carousel>
   );
@@ -85,11 +85,13 @@ export default function ServiceHighlights({
   const isMobile = useMediaQuery("(max-width: 640px)");
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-secondary">
       <div className={`${isMobile ? "" : "container max-w-6xl"} mx-auto px-4`}>
         <div className="container mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Our Services</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-foreground">
+            Our Services
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             We offer a comprehensive range of pharmacy services to meet all your
             healthcare needs
           </p>

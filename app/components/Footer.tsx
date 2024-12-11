@@ -3,18 +3,20 @@ import { Facebook, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-8 px-4 pb-24">
+    <footer className="bg-secondary py-8 px-4 pb-24">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Social Media Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Connect With Us</h3>
+            <h3 className="font-semibold text-lg text-foreground">
+              Connect With Us
+            </h3>
             <div className="flex space-x-4">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Visit our Facebook page"
               >
                 <Facebook className="w-5 h-5" />
@@ -23,7 +25,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Visit our Twitter page"
               >
                 <Twitter className="w-5 h-5" />
@@ -32,7 +34,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Visit our Instagram page"
               >
                 <Instagram className="w-5 h-5" />
@@ -45,7 +47,7 @@ const Footer = () => {
             <div className="flex flex-col space-y-2">
               <Link
                 href="https://www.medmehealth.com/privacy-policy"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -53,7 +55,7 @@ const Footer = () => {
               </Link>
               <Link
                 href="https://www.medmehealth.com/support-agreement"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -61,7 +63,7 @@ const Footer = () => {
               </Link>
               <Link
                 href="https://www.medmehealth.com/saas-agreement"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -72,14 +74,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-gray-200">
+        <div className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} All rights reserved
             </div>
             <Link
               href="https://www.medmehealth.com/"
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

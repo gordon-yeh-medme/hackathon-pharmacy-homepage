@@ -24,9 +24,9 @@ export function AboutUs({ data }: AboutUsProps) {
 
           {/* Content Section */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold">{data.title}</h2>
-            <div className="prose prose-gray max-w-none">
-              <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+            <h2 className="text-3xl font-bold text-foreground">{data.title}</h2>
+            <div className="prose prose-gray dark:prose-invert max-w-none">
+              <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {data.description}
               </p>
             </div>

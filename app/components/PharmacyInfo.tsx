@@ -40,31 +40,31 @@ export function PharmacyInfo({
   return (
     <section className="py-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">
+        <h2 className="text-3xl font-bold mb-8 text-center text-foreground">
           Pharmacy Information
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info Card */}
-          <Card className="p-6">
+          <Card className="p-6 bg-card text-card-foreground">
             {/* Primary Information */}
             <div className="space-y-6">
               {/* Primary Contact Section */}
-              <div className="space-y-4 border-b pb-6">
+              <div className="space-y-4 border-border pb-6 border-b">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 mt-1 text-primary shrink-0" />
                   <div>
-                    <p className="font-medium">Address</p>
-                    <p className="text-foreground">{address}</p>
+                    <p className="font-medium text-foreground">Address</p>
+                    <p className="text-muted-foreground">{address}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 mt-1 text-primary shrink-0" />
                   <div>
-                    <p className="font-medium">Phone</p>
+                    <p className="font-medium text-foreground">Phone</p>
                     <a
                       href={`tel:${phone}`}
-                      className="text-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {phone}
                     </a>
@@ -74,10 +74,10 @@ export function PharmacyInfo({
                 <div className="flex items-start gap-3">
                   <Mail className="w-5 h-5 mt-1 text-primary shrink-0" />
                   <div>
-                    <p className="font-medium">Email</p>
+                    <p className="font-medium text-foreground">Email</p>
                     <a
                       href={`mailto:${email}`}
-                      className="text-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {email}
                     </a>
@@ -90,7 +90,7 @@ export function PharmacyInfo({
                 <div className="flex items-start gap-3">
                   <Printer className="w-5 h-5 mt-1 text-muted-foreground shrink-0" />
                   <div>
-                    <p className="font-medium text-muted-foreground">Fax</p>
+                    <p className="font-medium text-foreground">Fax</p>
                     <p className="text-muted-foreground">{fax}</p>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export function PharmacyInfo({
                 <div className="flex items-start gap-3">
                   <Languages className="w-5 h-5 mt-1 text-muted-foreground shrink-0" />
                   <div>
-                    <p className="font-medium text-muted-foreground">
+                    <p className="font-medium text-foreground">
                       Languages Spoken
                     </p>
                     <p className="text-muted-foreground">
@@ -110,9 +110,7 @@ export function PharmacyInfo({
                 <div className="flex items-start gap-3">
                   <Accessibility className="w-5 h-5 mt-1 text-muted-foreground shrink-0" />
                   <div>
-                    <p className="font-medium text-muted-foreground">
-                      Accessibility
-                    </p>
+                    <p className="font-medium text-foreground">Accessibility</p>
                     <p className="text-muted-foreground">
                       {isWheelchairAccessible
                         ? "Wheelchair accessible"
@@ -124,7 +122,7 @@ export function PharmacyInfo({
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 mt-1 text-muted-foreground shrink-0" />
                   <div>
-                    <p className="font-medium text-muted-foreground">
+                    <p className="font-medium text-foreground">
                       Walk-in Policy
                     </p>
                     <p className="text-muted-foreground">
@@ -139,7 +137,7 @@ export function PharmacyInfo({
           </Card>
 
           {/* Mapbox Card */}
-          <Card className="w-full h-[300px] md:h-full overflow-hidden">
+          <Card className="w-full h-[300px] md:h-full overflow-hidden bg-card">
             <Map
               mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
               initialViewState={{
@@ -148,7 +146,7 @@ export function PharmacyInfo({
                 zoom: 14,
               }}
               style={{ width: "100%", height: "100%" }}
-              mapStyle="mapbox://styles/mapbox/basic-v9"
+              mapStyle="mapbox://styles/mapbox/streets-v12"
               interactive={true}
               attributionControl={true}
               reuseMaps
@@ -167,17 +165,17 @@ export function PharmacyInfo({
                   >
                     <path
                       d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                      className="fill-red-500 stroke-red-500"
+                      className="fill-primary stroke-primary"
                       strokeWidth="2"
                     />
                     <circle
                       cx="12"
                       cy="10"
                       r="3"
-                      className="fill-white stroke-none"
+                      className="fill-primary-foreground stroke-none"
                     />
                   </svg>
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-500/20 rounded-full blur-sm" />
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary/20 rounded-full blur-sm" />
                 </div>
               </Marker>
             </Map>
