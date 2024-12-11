@@ -1,3 +1,64 @@
+import { z } from "zod";
+
+// Base schemas
+export const RegularHoursSchema = z.object({
+  day: z.string(),
+  openTime: z.string(),
+  closeTime: z.string(),
+});
+
+export const HolidayHoursSchema = z.object({
+  date: z.string(),
+  name: z.string(),
+  openTime: z.string(),
+  closeTime: z.string(),
+});
+
+export const PharmacyHoursSchema = z.object({
+  regularHours: z.array(RegularHoursSchema),
+  holidayHours: z.array(HolidayHoursSchema),
+});
+
+export const PharmacyServiceSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().optional(),
+});
+
+export const PharmacyDataSchema = z.object({
+  announcement: z
+    .object({
+      text: z.string(),
+      link: z
+        .object({
+          url: z.string(),
+          text: z.string(),
+        })
+        .optional(),
+    })
+    .optional(),
+  name: z.string(),
+  address: z.string(),
+  phone: z.string(),
+  fax: z.string(),
+  email: z.string(),
+  coordinates: z.object({
+    latitude: z.number(),
+    longitude: z.number(),
+  }),
+  spokenLanguages: z.array(z.string()),
+  isWheelchairAccessible: z.boolean(),
+  acceptsWalkIns: z.boolean(),
+  hours: PharmacyHoursSchema,
+  highlightedServices: z.array(PharmacyServiceSchema),
+  services: z.array(PharmacyServiceSchema),
+  aboutUs: z.object({
+    image: z.string(),
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
 export interface PharmacyData {
   name: string;
   address: string;

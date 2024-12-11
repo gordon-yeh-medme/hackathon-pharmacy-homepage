@@ -21,6 +21,42 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 
 ---
 
+## Data Fetching Architecture
+
+### Dynamic Content Management
+
+- **Data Source:**
+
+  - Content is stored in a public S3 bucket under the path: `pharmacy/{locationId}.json`
+  - Each pharmacy website is identified by a unique `locationId`
+
+- **Domain to Location Mapping:**
+
+  - The `locationId` is determined by the website's domain name
+  - Current domain mappings:
+    ```json
+    {
+      "localhost:3000": "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98",
+      "hackathon-pharmacy-homepage.vercel.app": "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98"
+    }
+    ```
+
+- **Data Validation:**
+
+  - Implement strict schema validation using Zod
+  - Validate JSON structure immediately after fetching
+  - Schema should match the expected data structure for all components
+  - Invalid data should trigger appropriate error handling
+
+- **Error Handling:**
+  - Display a 404 page if:
+    - Domain is not found in the mapping
+    - JSON file is not found in S3
+    - Content fails schema validation
+  - Implement appropriate error boundaries for graceful failure handling
+
+---
+
 ## Core Components
 
 ### Announcement Banner
@@ -160,7 +196,7 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 │ ├── layout.tsx # Layout component
 │ └── page.tsx # Main page (home)
 ├── public
-│ ├── images # Store any static images here (optional)
+│ ��── images # Store any static images here (optional)
 │ ├── favicon.ico # Favicon
 │ └── manifest.json # PWA manifest (if needed)
 ├── styles

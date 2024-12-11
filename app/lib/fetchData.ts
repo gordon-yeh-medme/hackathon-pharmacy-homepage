@@ -1,33 +1,59 @@
 import {
+  PharmacyData,
+  PharmacyDataSchema,
   PharmacyHours,
-  PharmacyService,
-  AboutUs,
-  HighlightedService,
-  AnnouncementBannerData,
 } from "@/app/types/pharmacy";
+import { headers } from "next/headers";
 
-interface PharmacyData {
-  announcement?: AnnouncementBannerData;
-  name: string;
-  address: string;
-  phone: string;
-  fax: string;
-  email: string;
-  coordinates: {
-    latitude: number;
-    longitude: number;
-  };
-  spokenLanguages: string[];
-  isWheelchairAccessible: boolean;
-  acceptsWalkIns: boolean;
-  hours: PharmacyHours;
-  highlightedServices: HighlightedService[];
-  services: PharmacyService[];
-  aboutUs: AboutUs;
-}
+// Domain to locationId mapping
+const DOMAIN_MAPPING: Record<string, string> = {
+  "localhost:3000": "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98",
+  "hackathon-pharmacy-homepage.vercel.app":
+    "7bdb92eb-4580-4bd1-bec7-ff4f316e1f98",
+};
 
 export async function fetchPharmacyData(): Promise<PharmacyData> {
-  // For development, you can use this mock data
+  const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA === "true";
+
+  if (useMockData) {
+    return getMockData();
+  }
+
+  try {
+    // Get domain from request headers
+    const headersList = headers();
+    const domain = headersList.get("host");
+    if (!domain) {
+      throw new Error("Host header not found");
+    }
+
+    // Get locationId from domain mapping
+    const locationId = DOMAIN_MAPPING[domain];
+    if (!locationId) {
+      throw new Error("Domain not found in mapping");
+    }
+
+    // Fetch data from S3
+    const s3BucketUrl = process.env.S3_BUCKET_URL;
+    const response = await fetch(`${s3BucketUrl}/pharmacy/${locationId}.json`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch pharmacy data: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    // Validate data against schema
+    const validatedData = PharmacyDataSchema.parse(data);
+
+    return validatedData;
+  } catch (error) {
+    console.error("Error fetching pharmacy data:", error);
+    throw error; // Let the error boundary handle this
+  }
+}
+
+function getMockData(): PharmacyData {
   const mockData = {
     announcement: {
       text: "Get your flu shot today!",
@@ -153,6 +179,6 @@ export async function fetchPharmacyData(): Promise<PharmacyData> {
     },
   };
 
-  // TODO: Replace with actual API call
-  return mockData;
+  // Validate mock data against schema
+  return PharmacyDataSchema.parse(mockData);
 }

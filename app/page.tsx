@@ -10,6 +10,7 @@ import { AnnouncementBanner } from "./components/AnnouncementBanner";
 
 export default async function Home() {
   const pharmacyData = await fetchPharmacyData();
+  console.log(JSON.stringify(pharmacyData));
 
   return (
     <>
