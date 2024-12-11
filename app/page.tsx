@@ -15,13 +15,15 @@ export default async function Home() {
     <>
       <Header pharmacyName={pharmacyData.name} className="sticky top-0 z-50" />
       <main>
-        <StickyBottomBar pharmacyName={pharmacyData.name} />
         <PharmacyInfo
           address={pharmacyData.address}
           phone={pharmacyData.phone}
           fax={pharmacyData.fax}
           email={pharmacyData.email}
           coordinates={pharmacyData.coordinates}
+          spokenLanguages={pharmacyData.spokenLanguages}
+          isWheelchairAccessible={pharmacyData.isWheelchairAccessible}
+          acceptsWalkIns={pharmacyData.acceptsWalkIns}
         />
         <PharmacyHours hours={pharmacyData.hours} />
         <ServiceHighlights services={pharmacyData.highlightedServices} />

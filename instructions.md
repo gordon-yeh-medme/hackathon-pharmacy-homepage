@@ -43,6 +43,9 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
   - Fax number.
   - Email.
   - A Mapbox map showing the pharmacy's location.
+  - Spoken languages.
+  - is the pharmacy wheelchair accessible.
+  - does the pharmacy accept walk-in patients.
 - **Developer Alignment:**
   - Integrate Mapbox API with the API key stored in the `.env` file.
   - Ensure all displayed information is properly structured for screen readers.

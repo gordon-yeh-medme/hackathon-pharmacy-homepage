@@ -15,6 +15,9 @@ export async function fetchPharmacyData(): Promise<{
     latitude: number;
     longitude: number;
   };
+  spokenLanguages: string[];
+  isWheelchairAccessible: boolean;
+  acceptsWalkIns: boolean;
   hours: PharmacyHours;
   highlightedServices: HighlightedService[];
   services: PharmacyService[];
@@ -31,6 +34,9 @@ export async function fetchPharmacyData(): Promise<{
       latitude: 43.644356,
       longitude: -79.366614,
     },
+    spokenLanguages: ["English", "French", "Mandarin", "Spanish"],
+    isWheelchairAccessible: true,
+    acceptsWalkIns: true,
     hours: {
       regularHours: [
         { day: "Monday", openTime: "9:00 AM", closeTime: "7:00 PM" },
