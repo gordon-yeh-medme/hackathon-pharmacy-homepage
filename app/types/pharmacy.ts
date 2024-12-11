@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// Base schemas
+// Base Zod Schemas
 export const RegularHoursSchema = z.object({
   day: z.string(),
   openTime: z.string(),
@@ -22,21 +22,31 @@ export const PharmacyHoursSchema = z.object({
 export const PharmacyServiceSchema = z.object({
   id: z.string(),
   title: z.string(),
-  description: z.string().optional(),
+  description: z.string(),
+});
+
+export const HighlightedServiceSchema = PharmacyServiceSchema.extend({
+  image: z.string(),
+});
+
+export const AboutUsSchema = z.object({
+  image: z.string(),
+  title: z.string(),
+  description: z.string(),
+});
+
+export const AnnouncementBannerSchema = z.object({
+  text: z.string(),
+  link: z
+    .object({
+      url: z.string(),
+      text: z.string(),
+    })
+    .optional(),
 });
 
 export const PharmacyDataSchema = z.object({
-  announcement: z
-    .object({
-      text: z.string(),
-      link: z
-        .object({
-          url: z.string(),
-          text: z.string(),
-        })
-        .optional(),
-    })
-    .optional(),
+  announcement: AnnouncementBannerSchema.optional(),
   name: z.string(),
   address: z.string(),
   phone: z.string(),
@@ -50,73 +60,17 @@ export const PharmacyDataSchema = z.object({
   isWheelchairAccessible: z.boolean(),
   acceptsWalkIns: z.boolean(),
   hours: PharmacyHoursSchema,
-  highlightedServices: z.array(PharmacyServiceSchema),
+  highlightedServices: z.array(HighlightedServiceSchema),
   services: z.array(PharmacyServiceSchema),
-  aboutUs: z.object({
-    image: z.string(),
-    title: z.string(),
-    description: z.string(),
-  }),
+  aboutUs: AboutUsSchema,
 });
 
-export interface PharmacyData {
-  name: string;
-  address: string;
-  phone: string;
-  fax: string;
-  email: string;
-  coordinates: {
-    latitude: number;
-    longitude: number;
-  };
-  hours: PharmacyHours;
-  services: PharmacyService[];
-  aboutUs: AboutUs;
-  // We'll add more fields as we build other components
-}
-
-export interface RegularHours {
-  day: string;
-  openTime: string;
-  closeTime: string;
-}
-
-export interface HolidayHours {
-  date: string;
-  name: string;
-  openTime: string;
-  closeTime: string;
-}
-
-export interface PharmacyHours {
-  regularHours: RegularHours[];
-  holidayHours: HolidayHours[];
-}
-
-export interface PharmacyService {
-  id: string;
-  title: string;
-  description?: string;
-}
-
-export interface AboutUs {
-  image: string;
-  title: string;
-  description: string;
-}
-
-export interface HighlightedService {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  url?: string;
-}
-
-export interface AnnouncementBannerData {
-  text: string;
-  link?: {
-    url: string;
-    text: string;
-  };
-}
+// Derived TypeScript types
+export type RegularHours = z.infer<typeof RegularHoursSchema>;
+export type HolidayHours = z.infer<typeof HolidayHoursSchema>;
+export type PharmacyHours = z.infer<typeof PharmacyHoursSchema>;
+export type PharmacyService = z.infer<typeof PharmacyServiceSchema>;
+export type HighlightedService = z.infer<typeof HighlightedServiceSchema>;
+export type PharmacyData = z.infer<typeof PharmacyDataSchema>;
+export type AboutUs = z.infer<typeof AboutUsSchema>;
+export type AnnouncementBannerData = z.infer<typeof AnnouncementBannerSchema>;
