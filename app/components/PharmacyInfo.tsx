@@ -40,6 +40,9 @@ export function PharmacyInfo({
   return (
     <section className="py-12">
       <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Pharmacy Information
+        </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info Card */}
           <Card className="p-6">
