@@ -59,19 +59,20 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 
 ## Core Components
 
-### Announcement Banner
+### Hero Banner
 
-- **Description:** A sticky banner at the top of the page that can be dismissed.
+- **Description:** A prominent banner section at the top of the page that sets the tone for the website.
 - **Content:**
-  - A single line of text for the announcement
-  - A link (optional)
-  - A close button
+  - A title/heading text
+  - A call-to-action (CTA) button
+  - Background color using the main theme color
 - **Developer Alignment:**
-  - Banner should be sticky and appear above all other content
-  - Maximum width should be constrained (e.g., max-w-2xl) and centered
-  - Use eye-catching but on-brand colors to draw attention
-  - Banner state (open/closed) should persist in localStorage
-  - Ensure the close button is accessible via keyboard
+  - Banner should span the full width of the page
+  - Content should be constrained (e.g., max-w-7xl) and centered
+  - Use the website's theme color for the background
+  - Text should have sufficient contrast with the background color
+  - Ensure the CTA button is accessible via keyboard
+  - Responsive text sizing for different screen sizes
   - Example input:
     ```json
     {
@@ -166,6 +167,27 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
   - This section should support only one image for the MVP.
   - The story text will be fetched from the RESTful endpoint.
 
+### Pharmacist Team Section
+
+- **Description:** Showcases the pharmacy's team of pharmacists with their photos and biographical information.
+- **Content:**
+  - Grid of pharmacist cards, each containing:
+    ```json
+    {
+      "name": "Jane Smith",
+      "description": "Lead Pharmacist",
+      "photoUrl": "https://example.com/photo.jpg"
+    }
+    ```
+  - Responsive layout showing 1 card per row on mobile, 2-3 cards per row on larger screens
+- **Developer Alignment:**
+  - Implement using Tailwind CSS grid for responsive layout
+  - Photos should be optimized and lazy-loaded using Next.js Image component
+  - Ensure proper alt text for accessibility
+  - Cards should maintain consistent height within rows
+  - Bio text should truncate after 3-4 lines with ellipsis
+  - Photos should maintain consistent aspect ratio (e.g., 1:1 square)
+
 ### Footer Section
 
 - **Description:** Displays the footer of the page.
@@ -192,11 +214,13 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 │ │ ├── ServiceHighlights.tsx # Service highlights carousel
 │ │ ├── PharmacyServices.tsx # Services list
 │ │ ├── AboutUs.tsx # About us section
+│ │ ├── HeroBanner.tsx # Hero banner section
+│ │ ├── PharmacistTeam.tsx # New component for pharmacist team
 │ │ └── index.ts # Barrel file to export components
 │ ├── layout.tsx # Layout component
 │ └── page.tsx # Main page (home)
 ├── public
-│ ��── images # Store any static images here (optional)
+│ ── images # Store any static images here (optional)
 │ ├── favicon.ico # Favicon
 │ └── manifest.json # PWA manifest (if needed)
 ├── styles

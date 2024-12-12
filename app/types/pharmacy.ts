@@ -63,6 +63,12 @@ export const AccessibilitySchema = z.object({
   spokenLanguages: z.array(z.string()),
 });
 
+export const PharmacistSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  photoUrl: z.string(),
+});
+
 export const PharmacyDataSchema = z.object({
   announcement: AnnouncementBannerSchema.optional(),
   pharmacyMainInfo: PharmacyMainInfoSchema,
@@ -71,6 +77,7 @@ export const PharmacyDataSchema = z.object({
   highlightedServices: z.array(HighlightedServiceSchema),
   services: z.array(PharmacyServiceSchema),
   aboutUs: AboutUsSchema,
+  pharmacists: z.array(PharmacistSchema),
 });
 
 // Derived TypeScript types
@@ -84,3 +91,4 @@ export type Accessibility = z.infer<typeof AccessibilitySchema>;
 export type PharmacyData = z.infer<typeof PharmacyDataSchema>;
 export type AboutUs = z.infer<typeof AboutUsSchema>;
 export type AnnouncementBannerData = z.infer<typeof AnnouncementBannerSchema>;
+export type Pharmacist = z.infer<typeof PharmacistSchema>;
