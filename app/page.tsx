@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { PharmacyInfo } from "@/app/components/PharmacyInfo";
 import { fetchPharmacyData } from "@/app/lib/fetchData";
 import PharmacyHours from "@/app/components/PharmacyHours";
@@ -9,6 +10,14 @@ import Footer from "./components/Footer";
 // import { AnnouncementBanner } from "./components/AnnouncementBanner";
 import { HeroBanner } from "./components/HeroBanner";
 import { PharmacistTeam } from "./components/PharmacistTeam";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pharmacyData = await fetchPharmacyData();
+
+  return {
+    title: pharmacyData.pharmacyMainInfo.name,
+  };
+}
 
 export default async function Home() {
   const pharmacyData = await fetchPharmacyData();
