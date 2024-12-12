@@ -22,11 +22,6 @@ export function PharmacyServices({ services }: PharmacyServicesProps) {
                 <CardTitle className="text-sm md:text-base text-foreground">
                   {service.title}
                 </CardTitle>
-                {service.description && (
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {service.description}
-                  </p>
-                )}
               </CardHeader>
             </Card>
           ))}
