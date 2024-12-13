@@ -22,6 +22,7 @@ export const PharmacyHoursSchema = z.object({
 export const PharmacyServiceSchema = z.object({
   id: z.string(),
   title: z.string(),
+  url: z.string().optional(),
   description: z.string(),
 });
 

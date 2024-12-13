@@ -22,6 +22,33 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description }: ServiceCardProps) => {
+  const urlMapping: Record<string, string> = {
+    "Travel Health":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/travel",
+    "Flu Shot":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/flu",
+    "Point of Care Testing":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/poct",
+    "Mental Health and Addictions":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/pans-bloom",
+    "Medication Review":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/medication-review",
+    "Urinary Tract Infection (UTI)":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/uti-management",
+    "Diabetes Care Services":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/diabetes",
+    "Prescription Renewals/Refills":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/pans-prescription-renewals",
+    "COVID-19 Vaccine":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/COVID-19",
+    "Minor Illness Assessment":
+      "https://medme.development.medmeapp.com/schedule/groups/minorAilments",
+    "Diabetes Assessments":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/diabetes-assessments",
+    "Immunizations & Injections":
+      "https://medme.development.medmeapp.com/schedule/activity-groups/immunization-injection",
+  };
+
   return (
     <Card className="bg-card text-card-foreground border-border shadow-md hover:shadow-lg transition-shadow h-full">
       <CardContent className="p-6 flex flex-col h-full">
@@ -30,7 +57,13 @@ const ServiceCard = ({ title, description }: ServiceCardProps) => {
         </div>
         <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
         <p className="text-muted-foreground flex-grow mb-4">{description}</p>
-        <Link href="/booking" className="mt-auto">
+        <Link
+          href={
+            urlMapping[title] ||
+            "https://medme.development.medmeapp.com/schedule"
+          }
+          className="mt-auto"
+        >
           <Button className="w-full" variant="outline">
             Book Now
           </Button>
