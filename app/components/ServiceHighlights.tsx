@@ -52,7 +52,7 @@ const MobileCarousel = ({ services }: { services: HighlightedService[] }) => {
     >
       <CarouselContent className="-ml-2 cursor-grab active:cursor-grabbing">
         {services.map((service) => (
-          <CarouselItem key={service.id} className="pl-2 basis-[45%] pb-4">
+          <CarouselItem key={service.id} className="pl-2 basis-[90%] pb-4">
             <ServiceCard {...service} />
           </CarouselItem>
         ))}

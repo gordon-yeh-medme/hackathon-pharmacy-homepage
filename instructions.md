@@ -204,35 +204,35 @@ You will be using the following technologies: Next.js, Tailwind CSS, Shadcn UI, 
 
 ## Folder Structure
 
-.
-├── app
-│ ├── components
-│ │ ├── AnnouncementBanner.tsx # Announcement banner component
-│ │ ├── StickyBottomBar.tsx # Sticky bottom bar component
-│ │ ├── PharmacyInfo.tsx # Pharmacy info section
-│ │ ├── PharmacyHours.tsx # Pharmacy hours section
-│ │ ├── ServiceHighlights.tsx # Service highlights carousel
-│ │ ├── PharmacyServices.tsx # Services list
-│ │ ├── AboutUs.tsx # About us section
-│ │ ├── HeroBanner.tsx # Hero banner section
-│ │ ├── PharmacistTeam.tsx # New component for pharmacist team
-│ │ └── index.ts # Barrel file to export components
-│ ├── layout.tsx # Layout component
-│ └── page.tsx # Main page (home)
-├── public
-│ ── images # Store any static images here (optional)
-│ ├── favicon.ico # Favicon
-│ └── manifest.json # PWA manifest (if needed)
-├── styles
-│ ├── globals.css # Global styles for Tailwind
-│ └── tailwind.css # Tailwind base configuration
-├── lib
-│ ├── fetchData.ts # Utility for fetching data from REST API
-│ └── index.ts # Barrel file for utilities
-├── .env # Environment variables (e.g., Google Maps API key)
-├── next-env.d.ts # TypeScript environment definitions
-├── next.config.mjs # Next.js configuration
-├── tailwind.config.ts # Tailwind CSS configuration
-├── tsconfig.json # TypeScript configuration
-├── package.json # Dependencies and scripts
+.  
+├── app  
+│ ├── components  
+│ │ ├── AnnouncementBanner.tsx # Announcement banner component  
+│ │ ├── StickyBottomBar.tsx # Sticky bottom bar component  
+│ │ ├── PharmacyInfo.tsx # Pharmacy info section  
+│ │ ├── PharmacyHours.tsx # Pharmacy hours section  
+│ │ ├── ServiceHighlights.tsx # Service highlights carousel  
+│ │ ├── PharmacyServices.tsx # Services list  
+│ │ ├── AboutUs.tsx # About us section  
+│ │ ├── HeroBanner.tsx # Hero banner section  
+│ │ ├── PharmacistTeam.tsx # New component for pharmacist team  
+│ │ └── index.ts # Barrel file to export components  
+│ ├── layout.tsx # Layout component  
+│ └── page.tsx # Main page (home)  
+├── public  
+│ ├── images # Store any static images here (optional)  
+│ ├── favicon.ico # Favicon  
+│ └── manifest.json # PWA manifest (if needed)  
+├── styles  
+│ ├── globals.css # Global styles for Tailwind  
+│ └── tailwind.css # Tailwind base configuration  
+├── lib  
+│ ├── fetchData.ts # Utility for fetching data from REST API  
+│ └── index.ts # Barrel file for utilities  
+├── .env # Environment variables (e.g., Google Maps API key)  
+├── next-env.d.ts # TypeScript environment definitions  
+├── next.config.mjs # Next.js configuration  
+├── tailwind.config.ts # Tailwind CSS configuration  
+├── tsconfig.json # TypeScript configuration  
+├── package.json # Dependencies and scripts  
 └── README.md # Project overview and setup instructions
