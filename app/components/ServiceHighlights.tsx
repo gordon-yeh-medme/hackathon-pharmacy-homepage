@@ -26,7 +26,7 @@ const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
     <Card className="bg-card text-card-foreground border-border shadow-md hover:shadow-lg transition-shadow h-full">
       <CardContent className="p-6 flex flex-col h-full">
         <div className="flex items-center justify-center w-12 h-12 mb-4 bg-primary/10 rounded-full">
-          <Image src={image} alt={title} width={24} height={24} />
+          {/* <Image src={image} alt={title} width={24} height={24} /> */}
         </div>
         <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
         <p className="text-muted-foreground flex-grow mb-4">{description}</p>
