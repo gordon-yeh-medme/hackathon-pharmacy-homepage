@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -21,7 +21,7 @@ interface ServiceCardProps {
   url?: string;
 }
 
-const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
+const ServiceCard = ({ title, description }: ServiceCardProps) => {
   return (
     <Card className="bg-card text-card-foreground border-border shadow-md hover:shadow-lg transition-shadow h-full">
       <CardContent className="p-6 flex flex-col h-full">
